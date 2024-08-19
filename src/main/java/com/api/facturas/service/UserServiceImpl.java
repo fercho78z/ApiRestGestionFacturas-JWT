@@ -101,10 +101,10 @@ public class UserServiceImpl implements UserService {
         return new ResponseEntity<String>("{\"mensaje\":\""+" Credenciales incorrectas "+"\"}",HttpStatus.BAD_REQUEST);
     }
 
- /*   @Override
+   @Override 
     public ResponseEntity<List<UserWrapper>> getAllUsers() {
         try{
-            if(jwtFilter.isAdmin()){
+            if(jwtFilter.isAdmin()){    //solo el admin podra ver este listado
                 return new ResponseEntity<>(userDAO.getAllUsers(),HttpStatus.OK);
             }
             else{
@@ -139,13 +139,13 @@ public class UserServiceImpl implements UserService {
         }
         return FacturaUtils.getResponseEntity(FacturaConstantes.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
     }
-*/
+    
     @Override
     public ResponseEntity<String> checkToken() {
         return FacturaUtils.getResponseEntity("true",HttpStatus.OK);
     }
 
- /*   @Override
+    @Override
     public ResponseEntity<String> changePassword(Map<String, String> requestMap) {
         try{
             User user = userDAO.findByEmail(jwtFilter.getCurrentUser());
@@ -183,13 +183,17 @@ public class UserServiceImpl implements UserService {
     private void enviarCorreoToAdmins(String status,String user,List<String> allAdmins){
         allAdmins.remove(jwtFilter.getCurrentUser());
         if(status != null && status.equalsIgnoreCase("true")){
-            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Cuenta aprobada","USUARIO : " +user+ "\n es aprobado por \nADMIN : " + jwtFilter.getCurrentUser(),allAdmins);
+           // emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Cuenta aprobada","USUARIO : " +user+ "\n es aprobado por \nADMIN : " + jwtFilter.getCurrentUser(),allAdmins);
+        	 emailUtils.sendSimpleMessage(user,"Cuenta aprobada","USUARIO : " +user+ "\n es aprobado por \nADMIN : " + jwtFilter.getCurrentUser(),allAdmins);
+             
         }
         else{
-            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Cuenta desaprobada","USUARIO : " +user+ "\n es desaprobado por \nADMIN : " + jwtFilter.getCurrentUser(),allAdmins);
+            //emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Cuenta desaprobada","USUARIO : " +user+ "\n es desaprobado por \nADMIN : " + jwtFilter.getCurrentUser(),allAdmins);
+            emailUtils.sendSimpleMessage(user,"Cuenta desaprobada","USUARIO : " +user+ "\n es desaprobado por \nADMIN : " + jwtFilter.getCurrentUser(),allAdmins);
+            
         }
     }
-*/
+
     private boolean validateSignUpMap(Map<String, String> requestMap){
         if(requestMap.containsKey("nombre") && requestMap.containsKey("numeroDeContacto") && requestMap.containsKey("email") && requestMap.containsKey("password")){
             return true;

@@ -3,7 +3,7 @@ package com.api.facturas.wrapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+//Este seria un DTO segun el video 52 de ApiRest
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

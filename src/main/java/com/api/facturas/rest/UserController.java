@@ -39,7 +39,7 @@ public class UserController {
         return FacturaUtils.getResponseEntity(FacturaConstantes.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
- /*   @GetMapping("/get")
+    @GetMapping("/get")
     public ResponseEntity<List<UserWrapper>> listarUsuarios(){
         try{
             return userService.getAllUsers();
@@ -48,7 +48,7 @@ public class UserController {
         }
         return new ResponseEntity<List<UserWrapper>>(new ArrayList<>(),HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
+   
     @PutMapping("/update")
     public ResponseEntity<String> actualizarUsuario(@RequestBody(required = true) Map<String,String> requestMap){
         try{
@@ -58,7 +58,7 @@ public class UserController {
         }
         return FacturaUtils.getResponseEntity(FacturaConstantes.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
+    
     @GetMapping("/checkToken")
     public ResponseEntity<String> validarToken(){
         try {
@@ -88,6 +88,6 @@ public class UserController {
         }
         return FacturaUtils.getResponseEntity(FacturaConstantes.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
 
-    }*/
+    }
 }
 

@@ -26,7 +26,7 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-       // return NoOpPasswordEncoder.getInstance(); obsolteo se usa VCryptPassword
+       // return NoOpPasswordEncoder.getInstance(); obsolteo se usa BCryptPassword
         return new BCryptPasswordEncoder();
     }
 

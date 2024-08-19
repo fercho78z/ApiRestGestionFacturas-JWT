@@ -12,36 +12,42 @@ import java.util.List;
 @Service
 public class EmailUtils {
 
-   /* @Autowired
+    @Autowired
     private JavaMailSender javaMailSender;
 
     public void sendSimpleMessage(String to, String subject, String text, List<String> list)  {
+    	
+    	System.out.println("emal destinatario: " + to);
+    	
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("jonnhhdoe223@gmail.com");
+        message.setFrom("fbt2031@gmail.com");   
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
-
+        
+/*//condicion para enviar copia a todos los admins	
         if(list != null && list.size() > 0){
             message.setCc(getCcArray(list));
-        }
-
+        } 
+*/
         javaMailSender.send(message);
+      
     }
 
-    private String[] getCcArray(List<String> cclist){
+ /*   private String[] getCcArray(List<String> cclist){
         String [] cc = new String[cclist.size()];
         for(int i = 0;i < cclist.size();i++){
             cc[i] = cclist.get(i);
         }
         return cc;
-    }
+
+        }*/
 
     public void forgotPassword(String to,String subject,String password) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message,true);
 
-        helper.setFrom("jonnhhdoe223@gmail.com");
+        helper.setFrom("fbt2031@gmail.com");
         helper.setTo(to);
         helper.setSubject(subject);
 
@@ -50,5 +56,5 @@ public class EmailUtils {
                 + password + "</p>";
         message.setContent(htmlMessage,"text/html");
         javaMailSender.send(message);
-    }*/
+    }
 }
