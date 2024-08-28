@@ -38,8 +38,7 @@ public class FacturaUtils {
 
     public static Map<String,Object> getMapFromJson(String data){
         if(!Strings.isNullOrEmpty(data)){
-            return new Gson().fromJson(data,new TypeToken<Map<String,Object>>(){
-            }.getType());
+            return new Gson().fromJson(data,new TypeToken<Map<String,Object>>(){}.getType());
         }
         return new HashMap<>();
     }
@@ -55,4 +54,5 @@ public class FacturaUtils {
         return false;
     }
 }
+
 

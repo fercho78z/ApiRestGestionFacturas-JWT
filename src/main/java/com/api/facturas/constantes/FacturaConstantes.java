@@ -9,6 +9,6 @@ public class FacturaConstantes {
 
     public static final String UNAUTHORIZED_ACCESS = "Acceso no autorizado";
 
-    public static final String STORE_LOCATION = "C:\\LocationPDFs";
+    public static final String STORE_LOCATION = "D:\\Eclipse\\Descargas";
 }
 
